@@ -1,0 +1,25 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<div class="content">
+  <h1>
+      <span class="font-semi-bold">Lojas</span>
+      <span class="smaller"> <a href="{{ request.route_url('loja_action', action='create') }}"> + nova loja </a> </span>
+  </h1>
+    {% if todasLojas %}
+        <div class="row">
+            <ul>
+                {% for loja in todasLojas %}
+                    <li>
+                        <a href="{{ request.route_url('loja_action', action='remove', _query={'id':loja.id}) }}"> Excluir </a>
+                        <a href="{{ request.route_url('loja_action', action='edit', _query={'id':loja.id}) }}"> Editar </a>
+                        <h3>{{ loja.name }} <span class="smaller"> {{ loja.description }} </span></h3>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Nenhum loja cadastrada.</p>
+    {% endif %}
+</div>
+{% endblock content %}

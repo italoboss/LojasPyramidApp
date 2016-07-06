@@ -1,0 +1,5 @@
+      [paste.app_factory]
+      main = lojas:main
+      [console_scripts]
+      initialize_Lojas_db = lojas.scripts.initializedb:main
+      

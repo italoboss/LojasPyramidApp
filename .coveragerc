@@ -1,0 +1,3 @@
+[run]
+source = lojas
+omit = lojas/test*
